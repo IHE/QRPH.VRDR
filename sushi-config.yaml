@@ -1,7 +1,6 @@
 canonical: http://profiles.ihe.net/QRPH/VRDR
 title: "Vital Records Death Reporting (VRDR) FHIR Implementation Guide"
 description: This profile defines multiple approaches to capturing death reporting information from provider systems, including messaging, document exchange, and an RFD-based approach that specifies derivation of source content from a medical summary document along with requirements for form filler content and form manager handling of content. The profile additionally defines the transactions and documents that may be exchanged between jurisdictions and national statistics agencies.
-fhirVersion: 4.0.1
 FSHOnly: false
 applyExtensionMetadataToRoot: false
 id: ihe.qrph.vrdr
