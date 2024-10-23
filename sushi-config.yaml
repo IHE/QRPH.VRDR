@@ -1,26 +1,63 @@
-canonical: http://hl7.org/fhir/us/vrdr
+canonical: http://profiles.ihe.net/QRPH/VRDR
 title: "Vital Records Death Reporting (VRDR) FHIR Implementation Guide"
+description: This profile defines multiple approaches to capturing death reporting information from provider systems, including messaging, document exchange, and an RFD-based approach that specifies derivation of source content from a medical summary document along with requirements for form filler content and form manager handling of content. The profile additionally defines the transactions and documents that may be exchanged between jurisdictions and national statistics agencies.
 fhirVersion: 4.0.1
 FSHOnly: false
 applyExtensionMetadataToRoot: false
-id: hl7.fhir.us.vrdr
-name: VRDR
-status: active
-version: 3.0.0
-releaseLabel: STU3
+id: ihe.qrph.vrdr
+name: IHE_QRPH_VRDR
+status: draft
+version: 0.0.1-current
+releaseLabel: ci-build
+#releaseLabel: ballot
+#releaseLabel: trial-use
+#releaseLabel: release
+#date: 2022-01-02
+publisher:
+  name: IHE Quality, Research and Public Health Technical Committee
+  url: https://www.ihe.net/ihe_domains/quality_research_and_public_health/
+  email: iheqrphtech@ihe.net
+contact:
+  - name: IHE Quality, Research and Public Health Technical Committee
+    telecom:
+      - system: email
+        value: iheqrphtech@ihe.net
+license:  CC-BY-4.0
+fhirVersion: 4.0.1
+jurisdiction: 'http://unstats.un.org/unsd/methods/m49/m49.htm#001'
+#copyright: IHE http://www.ihe.net/Governance/#Intellectual_Property
+copyrightYear: 2023+
+
+parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
+  path-resource:
+    - input/resources
+    - fsh-generated/resources
+    - input/examples
+#  path-pages:
+#    - input/pagecontent
+#    - fsh-generated/includes
+  show-inherited-invariants: 'false'
+  usage-stats-opt-out: 'false'
+  logging: progress
+  shownav: 'true'
+  active-tables: 'false'
+  apply-contact: 'true'
+  apply-jurisdiction: 'true'
+  apply-publisher: 'true'
+  apply-version: 'true'
+#  path-expansion-params: '../../exp-params.json'  #path is relative to [base]/fsh-generated/resources
+
 dependencies:
-  hl7.fhir.us.core: 
-    version: 5.0.1
-    id: hl7fhiruscore
+  ihe.iti.pdqm: 
+    id: ihepdqm
+    uri: https://profiles.ihe.net/ITI/PDQm/ImplementationGuide/ihe.iti.pdqm
+    version: 3.0.x
   hl7.fhir.us.vr-common-library: 
     version: 2.0.0 
     id: hl7fhirusvrcommonlibrary
-  us.cdc.phinvads:
-    uri: http://fhir.org/packages/us.cdc.phinvads/ImplementationGuide/us.cdc.phinvads
-    version: 0.12.0 
-  hl7.fhir.us.odh:
-    version: 1.3.0
-    id: odh
+  ihe.pcc.odh: 
+    id: ihepccodh
+    version: current 
 
 pages:
   index.md:
@@ -337,20 +374,8 @@ groups:
     - Pronouncer-Example1
     - Certifier-Example2-no-NPI
 
-copyrightYear: 2022+
-publisher:
-  name: HL7 International / Public Health
-  url: http://www.hl7.org/Special/committees/pher
-  email: pher@lists.HL7.org
-parameters:
-  show-inherited-invariants: false
-  jira-code: vrdr
-  path-expansion-params: '../../exp-params.json'  #path is relative to [base]/fsh-generated/resources
-  version-comparison-master: true 
+# ToDO delete this oid root when you delete everything 
   auto-oid-root: 2.16.840.1.113883.4.642.40.10
-
-jurisdiction: urn:iso:std:iso:3166#US
-license: CC0-1.0
 
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
